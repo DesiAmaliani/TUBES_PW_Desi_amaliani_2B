@@ -33,7 +33,7 @@ switch(@$_GET['act']){
 		<th scope=\"row\">$no</th>
 		<td>$r[kd_member]</td>
 		<td>$r[anggota]</td>
-		<td><img src='../img/".$r['foto']."' width='50'></td>
+		<td><img src='img/".$r['foto']."' width='50'></td>
 		<td>$r[nama]</td>
 		<td>$r[posisi]</td>
 		<td><a button type=\"submit\" class=\"btn btn-primary\" href=?module=anggota&act=editanggota&id=$r[kd_member]>Edit</a>
@@ -91,7 +91,7 @@ switch(@$_GET['act']){
 	</div>
 	<div class=\"form-group\">
 	<label for=\"exampleInputEmail1\">Foto</label>
-	<img src='../img/$r[foto]' width='50'><br>
+	<img src='img/$r[foto]' width='50'><br>
 	<input name='foto' type='file' size='30' />
 	</div>
 	<button type=\"submit\" class=\"btn btn-primary\" value=Update>Update</button>

@@ -30,7 +30,7 @@ switch(@$_GET['act']){
 		<tr>
 		<th scope=\"row\">$no</th>
 		<td>$r[id]</td>
-		<td><img src='../img/".$r['foto']."' width='50'></td>
+		<td><img src='img/".$r['foto']."' width='50'></td>
 		<td>$r[nama]</td>
 		<td>$r[alamat]</td>
 		<td>$r[no_hp]</td>
@@ -72,7 +72,7 @@ switch(@$_GET['act']){
 	</div>
 	<div class=\"form-group\">
 	<label for=\"exampleInputEmail1\">Foto</label>
-	<img src='../img/$r[foto]' width='50'><br>
+	<img src='img/$r[foto]' width='50'><br>
 	<input name='foto' type='file' size='30' />
 	</div>
 	<div class=\"form-group\">

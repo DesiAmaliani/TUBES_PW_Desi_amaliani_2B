@@ -11,7 +11,7 @@ if ($module=='daftar' and $act=='update')
 	$tipe_file = $_FILES['foto']['type'];
 	$lokasi_file = $_FILES['foto']['tmp_name'];
 	$nama_file = $_FILES['foto']['name'];
-	$save_file =move_uploaded_file($lokasi_file,"../img/$nama_file");
+	$save_file =move_uploaded_file($lokasi_file,"img/$nama_file");
 	if(empty($lokasi_file))
 	{
 		isset($set);
@@ -30,19 +30,19 @@ if ($module=='daftar' and $act=='update')
 		}
 		else
 		{
-			$unlink=mysqli_query($koneksi,"select * from daftar where
+			$unlink=mysqli_query($con,"select * from daftar where
 				id='$_POST[id]'");
 			$CekLink=mysqli_fetch_array($unlink);
-			if(!empty($CekLink[foto]))
+			if(!empty($CekLink['foto']))
 			{
-				unlink("../img/$CekLink[foto]");
+				unlink("img/$CekLink[foto]");
 			}
 			isset($save_file);
 		}
 //replace di server
 		if($save_file)
 		{
-			chmod("../img/$nama_file", 0777);
+			chmod("img/$nama_file", 0777);
 		}
 		else{
 			$msg = $msg.'Upload Image gagal..';
@@ -78,9 +78,9 @@ elseif ($module=='daftar' AND $act=='hapus') {
 	$unlink=mysqli_query($con,"select * from daftar where
 		id='$_GET[id]'");
 	$CekLink=mysqli_fetch_array($unlink);
-	if(!empty($CekLink[foto]))
+	if(!empty($CekLink['foto']))
 	{
-		unlink("../img/$CekLink[foto]");
+		unlink("img/$CekLink[foto]");
 	}
 	mysqli_query($con,"delete from daftar where id='$_GET[id]'");
 	header('location:home.php?module=daftar&act=view'.$module);
@@ -93,7 +93,7 @@ elseif ($module=='anggota' and $act=='input')
 	$tipe_file = $_FILES['foto']['type'];
 	$lokasi_file = $_FILES['foto']['tmp_name'];
 	$nama_file = $_FILES['foto']['name'];
-	$save_file =move_uploaded_file($lokasi_file,"../img/$nama_file");
+	$save_file =move_uploaded_file($lokasi_file,"img/$nama_file");
 	if(empty($lokasi_file))
 	{
 		$set=false;
@@ -118,7 +118,7 @@ elseif ($module=='anggota' and $act=='input')
 //replace di server
 		if($save_file)
 		{
-			chmod("../img/$nama_file", 0777);
+			chmod("img/$nama_file", 0777);
 		}
 		else
 		{
@@ -148,7 +148,7 @@ elseif ($module=='anggota' and $act=='update')
 	$tipe_file = $_FILES['foto']['type'];
 	$lokasi_file = $_FILES['foto']['tmp_name'];
 	$nama_file = $_FILES['foto']['name'];
-	$save_file =move_uploaded_file($lokasi_file,"../img/$nama_file");
+	$save_file =move_uploaded_file($lokasi_file,"img/$nama_file");
 	if(empty($lokasi_file))
 	{
 		isset($set);
@@ -170,16 +170,16 @@ elseif ($module=='anggota' and $act=='update')
 			$unlink=mysqli_query($con,"select * from anggota where
 				kd_member='$_POST[kd_member]'");
 			$CekLink=mysqli_fetch_array($unlink);
-			if(!empty($CekLink[foto]))
+			if(!empty($CekLink['foto']))
 			{
-				unlink("../img/$CekLink[foto]");
+				unlink("img/$CekLink[foto]");
 			}
 			isset($save_file);
 		}
 //replace di server
 		if($save_file)
 		{
-			chmod("../img/$nama_file", 0777);
+			chmod("img/$nama_file", 0777);
 		}
 		else{
 			$msg = $msg.'Upload Image gagal..';
@@ -215,9 +215,9 @@ elseif ($module=='anggota' and $act=='hapus')
 	$unlink=mysqli_query($con,"select * from anggota where
 		kd_member='$_GET[id]'");
 	$CekLink=mysqli_fetch_array($unlink);
-	if(!empty($CekLink[foto]))
+	if(!empty($CekLink['foto']))
 	{
-		unlink("../img/$CekLink[foto]");
+		unlink("img/$CekLink[foto]");
 	}
 	mysqli_query($con,"delete from anggota where kd_member='$_GET[id]'");
 	header('location:home.php?module=anggota&act=view'.$module);

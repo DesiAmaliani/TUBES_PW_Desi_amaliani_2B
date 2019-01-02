@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
 	$nama_file = $_FILES['foto']['name'];
 	$tmp=$_FILES['foto']['tmp_name'];
 	$fotobaru=date('dmYHis').$nama_file;
-	$path="img/".$fotobaru;
+	$path="admin/img/".$fotobaru;
 
 	if (move_uploaded_file($tmp, $path)) {
 		# code...
